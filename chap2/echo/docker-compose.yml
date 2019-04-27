@@ -7,3 +7,12 @@ services:
       - 8080:8080
     volumes:
       - ./jenkins_home:/var/jenkins_home
+    links:
+      - slave01
+
+
+  slave01:
+    container_name: slave01
+    image: jenkinsci/ssh-slave
+    environment:
+      - JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/Yd/JuvPE+d8FIaId8iYTOaGOtOX4LFRL753ixIAEW8qEcupjUSZLav4Q8pewtC5+TolmN62qKEfIZVYIwIPdBZZYjq+QjfJr/8ua451qYi0lZfTnMKWEEyTuWxN36ClKiotR7t8Ycq1TYAAtLmyErKn4QpGwm973XPrybYdrjhvh6NRjqwcN/cCDZ7msCKG/biNahJkkhjWWOX4R+X1efwUccTzmSQvF/b+X/VYFU7D9fZ57n7glH7zQOu9rwuhDsaqAlSbuBPTJcuzAxxQKVp4/I48KZOjVXPHCdAd9IYf5ie0dw7M+DPMDW2Axro8K5J2Jc8N5fWTeDWs6lmPx
